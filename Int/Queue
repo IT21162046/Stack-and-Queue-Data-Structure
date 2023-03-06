@@ -1,0 +1,65 @@
+public class Queue2 {
+	
+	private int[] queueArray;
+	private int maxSize;
+	private int rear;
+	private int front;
+	private int noItem;
+
+	public Queue2(int s) {
+		maxSize = s;
+		queueArray = new int[maxSize];
+		rear = -1;
+		front = 0;
+		noItem = 0;
+
+	}
+
+	public boolean isEmpty() {
+		return (noItem == 0);
+	}
+
+	public boolean isFull() {
+		return (rear == (maxSize - 1));
+	}
+
+	// Insert
+	public void insert(int myInt) {
+
+		if (noItem == maxSize) {
+			System.out.println("Queue is full");
+
+		} else {
+
+			if (rear == maxSize - 1)
+				rear = -1;
+
+			queueArray[++rear] = myInt;
+			noItem++;
+
+		}
+
+	}
+
+	// Remove
+	public int remove() {
+
+		if (noItem == 0) {
+
+			System.out.print("Queue is empty");
+			return '.';
+
+		} else {
+			noItem--;
+
+			int temp = queueArray[front++];
+
+			if (front == maxSize)
+				front = 0;
+
+			return temp;
+
+		}
+	}
+
+}
