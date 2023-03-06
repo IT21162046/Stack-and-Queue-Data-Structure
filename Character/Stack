@@ -1,0 +1,57 @@
+public class Stack {
+
+	private char[] array;
+	private int maxSize; //Size of stack array
+	private int top; //Top of the stack
+	
+	public Stack(int s) { //Constructor
+		maxSize = s; //Set array size
+		array = new char [maxSize];
+		top = -1; //No items
+	}
+	
+	public boolean isFull(){
+		//Check whether stack is full
+		if(top == maxSize-1) {
+			return true;
+		}
+		else
+			return false;
+	}
+	
+	public boolean isEmpty() {
+		//Check whether stack is empty
+		if(top == -1)
+			return true;
+		else
+			return false;
+	}
+	
+	public void push(char k) {
+		if(isFull()) 
+			System.out.println("Stack is Full");
+		else {
+			array[++top] = k;
+		}
+	}
+	
+	public char pop() {
+		if(isEmpty()) {
+			System.out.println("Stack is empty");
+			return '-';
+		}
+		else {
+			return array[top--];
+		}
+	}
+	
+	public char peek() {
+		if(isEmpty()) {
+			System.out.println("Stack is empty");
+			return '-';
+		}
+		else {
+			return array[top];
+		}
+	}
+}
