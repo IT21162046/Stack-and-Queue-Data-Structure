@@ -1,0 +1,62 @@
+import java.util.Scanner;
+
+public class Main2 {
+
+	public static void main(String[] args) {
+
+		Queue2 queueX = new Queue2(5);
+
+		Stack2 stc = new Stack2(5);
+		
+		Scanner sc = new Scanner(System.in);
+
+		char number;
+
+		for (int i = 1; i < 6; i++) {
+
+			System.out.print("Enter Integer Value: ");
+
+			int c = sc.nextInt();
+			int myInt = c;
+
+			queueX.insert(myInt);
+		}
+
+		
+
+		while (!queueX.isEmpty()) {
+			
+			int value = queueX.remove();
+			
+			if (stc.isEmpty()) {
+				
+				stc.push(value);
+				
+			} else {
+				
+				while (stc.isEmpty() && value > stc.peek()) {
+
+					queueX.insert(stc.pop());
+
+				}
+
+				stc.push(value);
+			}
+		}
+
+		while (!stc.isEmpty()) {
+
+			queueX.insert(stc.pop());
+
+		}
+
+		System.out.print("Integers in descending order: ");
+
+		while (!queueX.isEmpty()) {
+			System.out.print(queueX.remove() + " ");
+
+		}
+
+	}
+
+}
