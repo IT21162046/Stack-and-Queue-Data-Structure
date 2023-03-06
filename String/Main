@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Main3 {
+	
+	public static void main(String[] args) {
+
+		int arraySize = 5;
+
+		Queue3 queueArray = new Queue3(arraySize);
+		Stack3 stackArray = new Stack3(arraySize);
+
+		Scanner sc = new Scanner(System.in);
+
+		for (int i = 0; i < arraySize; i++) {
+
+			System.out.print("Enter String Value: ");
+			String c = sc.next();
+			queueArray.insert(c);
+		}
+
+		for (int i = 0; i < arraySize; i++) {
+			
+
+			stackArray.push(queueArray.remove());
+			
+		}
+		for (int i = 0; i < arraySize; i++) {
+			
+
+			queueArray.insert(stackArray.pop());
+
+		}
+		for (int i = 0; i < arraySize; i++) {
+
+			System.out.println(queueArray.remove());
+
+		}
+
+	}
+
+}
